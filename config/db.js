@@ -1,9 +1,6 @@
+// db.js
 const mongoose = require("mongoose");
-
-// Only load .env locally, not in production
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+require("dotenv").config(); // load.env file
 
 const connectDB = async () => {
   try {
@@ -11,9 +8,9 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`);
+    console.error(`Error: ${error.message}`);
     process.exit(1); // Exit process with failure
   }
 };
