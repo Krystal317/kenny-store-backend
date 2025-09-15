@@ -26,6 +26,10 @@ const PORT=5000
 
 // listening to the server
 
-app.listen(PORT,()=>{
-    console.log(`Server is running on port ${PORT}`);
-})
+// app.listen(PORT,()=>{
+//     console.log(`Server is running on port ${PORT}`);
+// })
+
+// Export for Vercel
+module.exports = app;
+module.exports.handler = serverless(app);
